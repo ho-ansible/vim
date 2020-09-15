@@ -1,0 +1,9 @@
+#! /usr/bin/env ansible-playbook
+# Configure vim text editor
+---
+- name: vim | text editor
+  hosts: all
+  roles:
+  - role: vim
+    tags:
+    - vim

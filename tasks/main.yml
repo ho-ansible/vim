@@ -1,1 +1,27 @@
 ---
+
+- name: vim | install package
+  tags:
+  - package
+  package:
+    name: vim
+
+- name: vim | config
+  tags:
+  - config
+  copy:
+    src: "{{ item }}"
+    dest: /etc/vim/
+  loop:
+  - vimrc
+  - gvimrc.local
+
+- name: vim | vim packages
+  tags:
+  - vim
+  git:
+    repo: "{{ item.repo }}"
+    dest: "/etc/vim/pack/{{ item.name }}/start/{{ item.name }}"
+    depth: 1
+  loop: "{{ vim_pkgs }}"
+
