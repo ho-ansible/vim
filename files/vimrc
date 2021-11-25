@@ -17,6 +17,9 @@ set mouse=a		" Enable mouse usage (all modes)
 set autoindent		" Basic, compat with filetype-based indent below
 set shiftwidth=2	" Indent by 2 spaces
 
+" Hotkey to put current ISO8601 time in paste register
+nnoremap <F5> "=strftime("%FT%T%z")<CR>
+
 " Filetype-based auto-indentation
 if has("autocmd")
   filetype plugin indent on
